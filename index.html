@@ -115,17 +115,17 @@ nav{
 
 .btn-primary{
   display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,var(--pink),#c2186a);
+  background:linear-gradient(135deg,#25D366,#128C7E);
   color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1.08rem;
   padding:17px 40px;border-radius:60px;text-decoration:none;
-  box-shadow:0 8px 28px rgba(233,30,140,.38);
+  box-shadow:0 8px 28px rgba(37,211,102,.4);
   transition:transform .2s,box-shadow .2s;
   position:relative;z-index:1;overflow:hidden;
   opacity:0;animation:fu .7s .75s forwards;border:none;cursor:pointer;
 }
 .btn-primary::before{content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;background:rgba(255,255,255,.18);transform:skewX(-20deg);transition:left .5s;}
 .btn-primary:hover::before{left:130%;}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(233,30,140,.5);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(37,211,102,.55);}
 .btn-primary svg{width:22px;height:22px;fill:#fff;}
 
 .hero-tags{
@@ -144,6 +144,43 @@ nav{
 
 /* ─ WAVE ─ */
 .wsep{display:block;width:100%;line-height:0;margin-top:-2px;}
+
+/* ─ CARROSSEL DE FOTOS ─ */
+.sec-fotos{background:#fff;padding:88px 0;}
+.sec-fotos .si{padding:0 24px;}
+.carousel-wrap{position:relative;overflow:hidden;margin-top:40px;}
+.carousel-track{display:flex;gap:16px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform;padding:8px 24px 16px;}
+.carousel-slide{flex:0 0 300px;height:220px;border-radius:20px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.12);position:relative;transition:transform .3s,box-shadow .3s;}
+.carousel-slide:hover{transform:scale(1.03);box-shadow:0 12px 36px rgba(0,0,0,.18);}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.slide-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;color:rgba(255,255,255,.9);text-align:center;padding:12px;}
+.slide-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);color:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;padding:20px 12px 10px;}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px;}
+.carousel-btn{width:44px;height:44px;border-radius:50%;border:2px solid var(--pink);background:#fff;color:var(--pink);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,transform .2s;}
+.carousel-btn:hover{background:var(--pink);color:#fff;transform:scale(1.1);}
+.carousel-dots{display:flex;gap:8px;}
+.cdot{width:8px;height:8px;border-radius:50%;background:#e2d9f3;cursor:pointer;transition:background .2s,transform .2s;}
+.cdot.active{background:var(--pink);transform:scale(1.3);}
+
+/* ─ VÍDEOS DEPOIMENTOS ─ */
+.sec-videos{background:linear-gradient(135deg,#fdf4ff,#eff6ff);padding:88px 24px;}
+.videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:40px;}
+.video-card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;}
+.video-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,.13);}
+.video-placeholder{width:100%;aspect-ratio:9/16;max-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;overflow:hidden;cursor:pointer;}
+.play-btn{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:transform .2s;z-index:1;}
+.video-card:hover .play-btn{transform:scale(1.12);}
+.play-btn svg{width:26px;height:26px;margin-left:4px;}
+.vp-text{font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;color:rgba(255,255,255,.9);z-index:1;text-align:center;padding:0 14px;}
+.vp-hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Nunito',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.6);z-index:1;}
+.video-info{padding:14px 16px 18px;}
+.video-info h4{font-family:'Baloo 2',cursive;font-weight:700;font-size:.98rem;color:var(--dark);margin-bottom:3px;}
+.video-info p{font-size:.83rem;color:var(--gray);}
+
+@media(max-width:600px){
+  .carousel-slide{flex:0 0 250px;height:180px;}
+  .video-placeholder{max-height:260px;}
+}
 
 /* ─ SECTIONS ─ */
 .sp{padding:88px 24px;}
@@ -452,7 +489,92 @@ footer strong{color:var(--pink-l);}
   </div>
 </section>
 
-<svg class="wsep" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style="background:#fffbeb"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f5f3ff"/></svg>
+<svg class="wsep" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style="background:#fffbeb"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#fff"/></svg>
+
+<!-- CARROSSEL DE FOTOS -->
+<section class="sec-fotos">
+  <div class="si reveal">
+    <span class="chip cp">📸 Nossa Galeria</span>
+    <h2 class="stitle">Momentos que fazem<br><span class="cp2">o coração sorrir</span></h2>
+    <p class="sbody" style="margin-bottom:0">Cada foto é uma história de criança feliz, crescendo com arte, movimento e muita alegria!</p>
+  </div>
+  <div class="carousel-wrap reveal">
+    <div class="carousel-track" id="carTrack">
+      <!-- Slides placeholder — substitua src="" pela URL ou caminho das suas fotos reais -->
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#E91E8C,#ff6ec7);">
+        <div class="slide-placeholder">📸<span>Adicione uma foto aqui</span></div>
+        <div class="slide-label">Aulas de Ballet</div>
+      </div>
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#7C3AED,#a855f7);">
+        <div class="slide-placeholder">📸<span>Adicione uma foto aqui</span></div>
+        <div class="slide-label">Atividades de Arte</div>
+      </div>
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#06B6D4,#22d3ee);">
+        <div class="slide-placeholder">📸<span>Adicione uma foto aqui</span></div>
+        <div class="slide-label">Espaço de Convivência</div>
+      </div>
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#FF6B35,#fbbf24);">
+        <div class="slide-placeholder">📸<span>Adicione uma foto aqui</span></div>
+        <div class="slide-label">Culinária Criativa</div>
+      </div>
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#22C55E,#4ade80);">
+        <div class="slide-placeholder">📸<span>Adicione uma foto aqui</span></div>
+        <div class="slide-label">Teatro e Movimento</div>
+      </div>
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#ec4899,#E91E8C);">
+        <div class="slide-placeholder">📸<span>Adicione uma foto aqui</span></div>
+        <div class="slide-label">Apresentações</div>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-nav">
+    <button class="carousel-btn" id="carPrev">&#8592;</button>
+    <div class="carousel-dots" id="carDots"></div>
+    <button class="carousel-btn" id="carNext">&#8594;</button>
+  </div>
+</section>
+
+<svg class="wsep" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style="background:#fff"><path d="M0,30 C360,0 1080,60 1440,30 L1440,0 L0,0 Z" fill="#f5f3ff"/></svg>
+
+<!-- VÍDEOS DEPOIMENTOS -->
+<section class="sec-videos">
+  <div class="si">
+    <div class="reveal">
+      <span class="chip cv">🎥 Depoimentos em Vídeo</span>
+      <h2 class="stitle">Veja o que as famílias<br><span class="cv2">dizem sobre nós</span></h2>
+      <p class="sbody" style="margin-bottom:0">Nada fala mais alto do que a emoção de uma mãe feliz. Em breve, os vídeos reais das nossas famílias estarão aqui!</p>
+    </div>
+    <div class="videos-grid reveal">
+      <div class="video-card">
+        <div class="video-placeholder" style="background:linear-gradient(160deg,#E91E8C,#7C3AED);">
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="var(--pink)"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="vp-text">Depoimento em vídeo em breve!</p>
+          <p class="vp-hint">📲 Grave e envie pelo WhatsApp</p>
+        </div>
+        <div class="video-info"><h4>Mãe da Isadora</h4><p>Ballet · 6 anos</p></div>
+      </div>
+      <div class="video-card">
+        <div class="video-placeholder" style="background:linear-gradient(160deg,#06B6D4,#7C3AED);">
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="var(--cyan)"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="vp-text">Depoimento em vídeo em breve!</p>
+          <p class="vp-hint">📲 Grave e envie pelo WhatsApp</p>
+        </div>
+        <div class="video-info"><h4>Mãe do Miguel</h4><p>Convivência · 8 anos</p></div>
+      </div>
+      <div class="video-card">
+        <div class="video-placeholder" style="background:linear-gradient(160deg,#FF6B35,#E91E8C);">
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="var(--orange)"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="vp-text">Depoimento em vídeo em breve!</p>
+          <p class="vp-hint">📲 Grave e envie pelo WhatsApp</p>
+        </div>
+        <div class="video-info"><h4>Mãe da Beatriz</h4><p>Ballet · 7 anos</p></div>
+      </div>
+    </div>
+    <p style="margin-top:28px;font-size:.9rem;color:var(--gray);text-align:center;">💡 <strong>Dica:</strong> Peça para as mães gravarem um vídeo curto de 30 segundos e enviem para vocês. É o depoimento mais poderoso que existe!</p>
+  </div>
+</section>
+
+<svg class="wsep" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style="background:#f5f3ff"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f5f3ff"/></svg>
 
 <!-- DEPOIMENTOS -->
 <section class="sec-depo sp">
@@ -480,12 +602,8 @@ footer strong{color:var(--pink-l);}
       <h2 class="stitle">Tudo pensado para<br><span class="cc2">o seu filho</span></h2>
     </div>
     <div class="difgrid reveal">
-      <div class="di"><div class="de">♿</div><h4>Espaço Acessível</h4></div>
       <div class="di"><div class="de">🌈</div><h4>Ambiente Inclusivo</h4></div>
-      <div class="di"><div class="de">🚗</div><h4>Estacionamento Gratuito</h4></div>
       <div class="di"><div class="de">💳</div><h4>Aceita Cartões</h4></div>
-      <div class="di"><div class="de">💻</div><h4>Aulas Online</h4></div>
-      <div class="di"><div class="de">🏠</div><h4>Espaço Próprio e Seguro</h4></div>
       <div class="di"><div class="de">🎓</div><h4>Equipe Especializada</h4></div>
       <div class="di"><div class="de">📅</div><h4>10 Anos de História</h4></div>
     </div>
@@ -533,10 +651,57 @@ footer strong{color:var(--pink-l);}
 </footer>
 
 <script>
+/* SCROLL REVEAL */
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
 },{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* CARROSSEL DE FOTOS */
+(function(){
+  const track = document.getElementById('carTrack');
+  const slides = track ? track.querySelectorAll('.carousel-slide') : [];
+  const dotsWrap = document.getElementById('carDots');
+  const btnPrev = document.getElementById('carPrev');
+  const btnNext = document.getElementById('carNext');
+  if(!track || slides.length === 0) return;
+
+  let current = 0;
+  const slideW = () => slides[0].offsetWidth + 16; // width + gap
+  const maxIndex = slides.length - 1;
+
+  // criar dots
+  slides.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className = 'cdot' + (i===0?' active':'');
+    d.addEventListener('click',()=>goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, maxIndex));
+    track.style.transform = `translateX(-${current * slideW()}px)`;
+    dotsWrap.querySelectorAll('.cdot').forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+
+  btnPrev.addEventListener('click',()=>goTo(current-1));
+  btnNext.addEventListener('click',()=>goTo(current+1));
+
+  // auto-play
+  let timer = setInterval(()=>goTo(current < maxIndex ? current+1 : 0), 3500);
+  track.addEventListener('mouseenter',()=>clearInterval(timer));
+  track.addEventListener('mouseleave',()=>{ timer = setInterval(()=>goTo(current < maxIndex ? current+1 : 0), 3500); });
+
+  // touch/swipe
+  let touchX = 0;
+  track.addEventListener('touchstart',e=>{ touchX = e.touches[0].clientX; },{passive:true});
+  track.addEventListener('touchend',e=>{
+    const diff = touchX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) goTo(diff > 0 ? current+1 : current-1);
+  },{passive:true});
+
+  window.addEventListener('resize',()=>goTo(current));
+})();
 </script>
 </body>
 </html>
